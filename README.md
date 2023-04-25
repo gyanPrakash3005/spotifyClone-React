@@ -1,5 +1,5 @@
 # Check the project at this URl(https://spotifyclone-3417a.web.app/)
-You may need to login to your sotify account to view current details.
+You may need to login to your Spotify account to view current details.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
