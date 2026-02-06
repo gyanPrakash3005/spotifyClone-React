@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Footer.css";
 import {
     PlayCircleOutline,
@@ -8,22 +8,47 @@ import {
     Shuffle,
     Repeat,
     VolumeDown,
-} from "@material-ui/icons";
-import { Grid, Slider } from "@material-ui/core";
+} from "@mui/icons-material";
+import { Grid, Slider } from "@mui/material";
+import { useDataLayerValue } from "../../context/DataLayer";
 
-function Footer() {
+function Footer({ spotify }) {
+    const [{ token, item, playing }, dispatch] = useDataLayerValue();
+
+    useEffect(() => {
+        spotify.getMyCurrentPlayingTrack().then((r) => {
+            console.log(r);
+
+            dispatch({
+                type: "SET_ITEM",
+                item: r.item,
+            });
+            dispatch({
+                type: "SET_PLAYING",
+                playing: r.is_playing,
+            });
+        });
+    }, [spotify]);
+
     return (
         <div className="footer">
             <div className="footer__left">
                 <img
-                    src="https://i.pinimg.com/originals/8d/c7/52/8dc752834195102e4cb630a53221255e.jpg"
-                    alt=""
                     className="footer__albumLogo"
+                    src={item?.album.images[0].url}
+                    alt={item?.name}
                 />
-                <div className="footer__songInfo">
-                    <h4>My fav song</h4>
-                    <p>Gyan prakash</p>
-                </div>
+                {item ? (
+                    <div className="footer__songInfo">
+                        <h4>{item.name}</h4>
+                        <p>{item.artists.map((artist) => artist.name).join(", ")}</p>
+                    </div>
+                ) : (
+                    <div className="footer__songInfo">
+                        <h4>No song is playing</h4>
+                        <p>...</p>
+                    </div>
+                )}
             </div>
             <div className="footer__center">
                 <Shuffle className="footer__green" />

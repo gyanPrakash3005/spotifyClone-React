@@ -1,8 +1,8 @@
 import React from "react";
-import { Search } from "@material-ui/icons";
+import { Search } from "@mui/icons-material";
 import "./Header.css";
-import { Avatar } from "@material-ui/core";
-import { useDataLayerValue } from "./DataLayer";
+import { Avatar } from "@mui/material";
+import { useDataLayerValue } from "../../context/DataLayer";
 
 function Header() {
     const [{ user }, dispatch] = useDataLayerValue();

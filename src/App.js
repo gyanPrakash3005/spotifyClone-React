@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Login from "./Login";
+import Login from "./pages/Login/Login";
 import "./App.css";
-import { getTokenFromUrl } from "./spotify";
+import { getTokenFromUrl } from "./lib/spotify";
 import SpotifyWebApi from "spotify-web-api-js";
-import Player from "./Player";
-import { useDataLayerValue } from "./DataLayer";
+import Player from "./components/Player/Player";
+import { useDataLayerValue } from "./context/DataLayer";
 
 const spotify = new SpotifyWebApi();
 
@@ -38,6 +38,17 @@ function App() {
         dispatch({
           type: "SET_DISCOVER_WEEKLY",
           discover_weekly: playlist,
+        });
+      });
+
+      spotify.getMyCurrentPlayingTrack().then((r) => {
+        dispatch({
+          type: "SET_ITEM",
+          item: r.item,
+        });
+        dispatch({
+          type: "SET_PLAYING",
+          playing: r.is_playing,
         });
       });
     }

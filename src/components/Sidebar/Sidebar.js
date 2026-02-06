@@ -1,10 +1,10 @@
 import React from "react";
 import "./Sidebar.css";
-import SidebarOption from "./SidebarOption";
-import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
-import { LibraryMusic } from "@material-ui/icons";
-import { useDataLayerValue } from "./DataLayer";
+import SidebarOption from "../SidebarOption/SidebarOption";
+import HomeIcon from "@mui/icons-material/Home";
+import SearchIcon from "@mui/icons-material/Search";
+import { LibraryMusic } from "@mui/icons-material";
+import { useDataLayerValue } from "../../context/DataLayer";
 
 function Sidebar() {
     const [{ playlists }, dispatch] = useDataLayerValue();
@@ -13,7 +13,7 @@ function Sidebar() {
         <div className="sidebar">
             <img
                 className="sidebar__logo"
-                src="https://music-b26f.kxcdn.com/wp-content/uploads/2017/06/635963274692858859903160895_spotify-logo-horizontal-black.jpg"
+                src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
                 alt="Spotify logo"
             />
 
