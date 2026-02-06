@@ -1,7 +1,9 @@
 import React from "react";
 import "./SongRow.css";
 
-function SongRow({ track }) {
+function SongRow({ track, added_at }) {
+    const date = new Date(added_at).toDateString();
+
     return (
         <div className="songRow">
             <img src={track.album.images[0].url} alt="" className="songRow__album" />
@@ -12,6 +14,11 @@ function SongRow({ track }) {
                     {track.album.name}
                 </p>
             </div>
+            {added_at && (
+                <div className="songRow__right">
+                    <p>{date}</p>
+                </div>
+            )}
         </div>
     );
 }

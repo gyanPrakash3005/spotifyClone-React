@@ -4,6 +4,11 @@ export const initialState = {
   playlists: [],
   playing: false,
   item: null,
+  discover_weekly: null,
+  top_artists: null,
+  spotify: null,
+  search_results: null,
+  view: "home", // "home" or "search"
 };
 
 const reducer = (state, action) => {
@@ -39,6 +44,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         item: action.item,
+      };
+    case "SET_SEARCH_RESULTS":
+      return {
+        ...state,
+        search_results: action.search_results,
+      };
+    case "SET_VIEW":
+      return {
+        ...state,
+        view: action.view,
       };
     default:
       return state;

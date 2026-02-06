@@ -3,24 +3,47 @@
   justify-content: space-between;
   margin-bottom: 30px;
 }
+
 .header__left {
-  background-color: white;
-  color: gray;
-  min-width: 80px;
-  border-radius: 30px;
-  padding: 10px;
-  align-items: center;
   display: flex;
   flex: 0.5;
+  align-items: center;
 }
-.header__left > input {
+
+.header__history {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.header__historyIcon {
+  background-color: black;
+  border-radius: 50%;
+  padding: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.header__search {
+  background-color: white;
+  color: gray;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex: 1;
+}
+
+.header__search > input {
   border: none;
   width: 100%;
 }
+
 .header__right {
   display: flex;
   align-items: center;
 }
+
 .header__right > h4 {
   margin-left: 10px;
 }

@@ -26,3 +26,23 @@
   padding: 5px;
   font-size: 12px;
 }
+
+.sidebar__install {
+    display: flex;
+    align-items: center;
+    color: gray;
+    padding: 10px;
+    height: 40px;
+    cursor: pointer;
+    transition: 200ms color ease-in;
+    margin-top: 20px;
+}
+
+.sidebar__install:hover {
+    color: white;
+}
+
+.sidebar__installIcon {
+    padding-left: 10px;
+    padding-right: 10px;
+}
